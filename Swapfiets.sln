@@ -8,20 +8,23 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Swapfiets.Core", "Swapfiets.Core", "{6F0B467B-00C0-4019-852A-7E2460B08CDB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{7FC233CF-10B8-45E6-9DAB-442782FF5C3F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Swapfiets.Theft", "Swapfiets.Theft", "{56C6C8FC-628A-4705-B84F-3B9E4CD556A1}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		swapfiets.run.ps1 = swapfiets.run.ps1
+		swapfiets.tests.ps1 = swapfiets.tests.ps1
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swapfiets.Core.SharedKernel", "src\Swapfiets.Core\Swapfiets.Core.SharedKernel\Swapfiets.Core.SharedKernel.csproj", "{A9F64E77-9E33-4A1C-87EB-12BA62F704E4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swapfiets.Theft.Api", "src\Swapfiets.Theft\Swapfiets.Theft.Api\Swapfiets.Theft.Api.csproj", "{DF0B79A1-8A89-4BC4-998A-AA6FF2FE291F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swapfiets.Theft.Service", "src\Swapfiets.Theft\Swapfiets.Theft.Service\Swapfiets.Theft.Service.csproj", "{D6D78745-7F5B-4BC3-AC76-E92F4229EF48}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swapfiets.Theft.Core", "src\Swapfiets.Theft\Swapfiets.Theft.Core\Swapfiets.Theft.Core.csproj", "{BEFE0AE6-3CC0-4968-BE61-3B8CB124C341}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{60BE7231-E3EA-4E86-8F63-D2DCDFAFE1AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swapfiets.Theft.Tests", "tests\Swapfiets.Theft.Tests\Swapfiets.Theft.Tests.csproj", "{12C000BF-B0A1-4263-A3F8-673A240ED99C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swapfiets.Theft.Api", "src\Swapfiets.Theft.Api\Swapfiets.Theft.Api.csproj", "{555CD79A-923F-494C-B71D-608606C047C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swapfiets.Theft.Core", "src\Swapfiets.Theft.Core\Swapfiets.Theft.Core.csproj", "{220E88A7-148E-468A-8D59-D975022EC918}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swapfiets.Theft.Service", "src\Swapfiets.Theft.Service\Swapfiets.Theft.Service.csproj", "{5DA5DC5C-835D-470A-9872-2AA48D700457}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swapfiets.Theft.Tests", "tests\Swapfiets.Theft.Tests\Swapfiets.Theft.Tests.csproj", "{F992450A-CCFA-446D-9002-A490AD7A46A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,35 +36,33 @@ Global
 		{A9F64E77-9E33-4A1C-87EB-12BA62F704E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9F64E77-9E33-4A1C-87EB-12BA62F704E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9F64E77-9E33-4A1C-87EB-12BA62F704E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DF0B79A1-8A89-4BC4-998A-AA6FF2FE291F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DF0B79A1-8A89-4BC4-998A-AA6FF2FE291F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DF0B79A1-8A89-4BC4-998A-AA6FF2FE291F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DF0B79A1-8A89-4BC4-998A-AA6FF2FE291F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D6D78745-7F5B-4BC3-AC76-E92F4229EF48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D6D78745-7F5B-4BC3-AC76-E92F4229EF48}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D6D78745-7F5B-4BC3-AC76-E92F4229EF48}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D6D78745-7F5B-4BC3-AC76-E92F4229EF48}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BEFE0AE6-3CC0-4968-BE61-3B8CB124C341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BEFE0AE6-3CC0-4968-BE61-3B8CB124C341}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BEFE0AE6-3CC0-4968-BE61-3B8CB124C341}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BEFE0AE6-3CC0-4968-BE61-3B8CB124C341}.Release|Any CPU.Build.0 = Release|Any CPU
-		{12C000BF-B0A1-4263-A3F8-673A240ED99C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{12C000BF-B0A1-4263-A3F8-673A240ED99C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{12C000BF-B0A1-4263-A3F8-673A240ED99C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{12C000BF-B0A1-4263-A3F8-673A240ED99C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{555CD79A-923F-494C-B71D-608606C047C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{555CD79A-923F-494C-B71D-608606C047C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{555CD79A-923F-494C-B71D-608606C047C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{555CD79A-923F-494C-B71D-608606C047C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{220E88A7-148E-468A-8D59-D975022EC918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{220E88A7-148E-468A-8D59-D975022EC918}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{220E88A7-148E-468A-8D59-D975022EC918}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{220E88A7-148E-468A-8D59-D975022EC918}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DA5DC5C-835D-470A-9872-2AA48D700457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DA5DC5C-835D-470A-9872-2AA48D700457}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DA5DC5C-835D-470A-9872-2AA48D700457}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DA5DC5C-835D-470A-9872-2AA48D700457}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F992450A-CCFA-446D-9002-A490AD7A46A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F992450A-CCFA-446D-9002-A490AD7A46A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F992450A-CCFA-446D-9002-A490AD7A46A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F992450A-CCFA-446D-9002-A490AD7A46A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6F0B467B-00C0-4019-852A-7E2460B08CDB} = {BC5A34AB-D17C-4AC7-B06D-4983BE0A3F15}
-		{7FC233CF-10B8-45E6-9DAB-442782FF5C3F} = {BC5A34AB-D17C-4AC7-B06D-4983BE0A3F15}
-		{56C6C8FC-628A-4705-B84F-3B9E4CD556A1} = {BC5A34AB-D17C-4AC7-B06D-4983BE0A3F15}
 		{A9F64E77-9E33-4A1C-87EB-12BA62F704E4} = {6F0B467B-00C0-4019-852A-7E2460B08CDB}
-		{DF0B79A1-8A89-4BC4-998A-AA6FF2FE291F} = {56C6C8FC-628A-4705-B84F-3B9E4CD556A1}
-		{D6D78745-7F5B-4BC3-AC76-E92F4229EF48} = {56C6C8FC-628A-4705-B84F-3B9E4CD556A1}
-		{BEFE0AE6-3CC0-4968-BE61-3B8CB124C341} = {56C6C8FC-628A-4705-B84F-3B9E4CD556A1}
-		{12C000BF-B0A1-4263-A3F8-673A240ED99C} = {60BE7231-E3EA-4E86-8F63-D2DCDFAFE1AD}
+		{555CD79A-923F-494C-B71D-608606C047C1} = {BC5A34AB-D17C-4AC7-B06D-4983BE0A3F15}
+		{220E88A7-148E-468A-8D59-D975022EC918} = {BC5A34AB-D17C-4AC7-B06D-4983BE0A3F15}
+		{5DA5DC5C-835D-470A-9872-2AA48D700457} = {BC5A34AB-D17C-4AC7-B06D-4983BE0A3F15}
+		{F992450A-CCFA-446D-9002-A490AD7A46A1} = {60BE7231-E3EA-4E86-8F63-D2DCDFAFE1AD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {85B18EBE-384F-42B0-8162-E1F00DE52EDB}

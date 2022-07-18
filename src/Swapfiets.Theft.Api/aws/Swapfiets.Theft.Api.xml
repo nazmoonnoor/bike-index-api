@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Swapfiets.Theft.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Swapfiets.Theft.Api.Configuration.DependencyConfig">
+            <summary>
+            Configures dependencies
+            </summary>
+        </member>
+        <member name="M:Swapfiets.Theft.Api.Configuration.DependencyConfig.ConfigureDependencies(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="T:Swapfiets.Theft.Api.Configuration.SeedApplicationDb">
+            <summary>
+            Seeds application database
+            </summary>
+        </member>
+        <member name="M:Swapfiets.Theft.Api.Configuration.SeedApplicationDb.SeedData(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Seed data
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="T:Swapfiets.Theft.Api.Controllers.BaseController`1">
+            <summary>
+            Represents the Base controller of theft api
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Swapfiets.Theft.Api.Controllers.BikeTheftController">
+            <summary>
+            Represents the bike theft resources
+            </summary>
+        </member>
+        <member name="M:Swapfiets.Theft.Api.Controllers.BikeTheftController.#ctor(Swapfiets.Theft.Service.Services.IBikeTheftService)">
+            <summary>
+            Injects the dependencies
+            </summary>
+            <param name="bikeTheftService">Initializes the bike theft service</param>
+        </member>
+        <member name="M:Swapfiets.Theft.Api.Controllers.BikeTheftController.GetBikeThefts(System.String,System.Nullable{System.Double},System.Nullable{System.Double},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Gets filtered list of theft bikes
+            </summary>
+            <param name="city">Optional. City name</param>
+            <param name="latitude">(Optioinal) Latitude of the location</param>
+            <param name="longitude">(Optioinal) Longitude of the location</param>
+            <param name="distance">(Optioinal) Distance: default value is 20</param>
+            <param name="pageSize">(Optioinal) PageSize: default value is 20</param>
+            <param name="pageNumber">(Optioinal) PageNumber: default value is 1</param>
+            <returns></returns>
+        </member>
+        <member name="M:Swapfiets.Theft.Api.Controllers.BikeTheftController.GetBikeTheftCount(System.String,System.Nullable{System.Double},System.Nullable{System.Double},System.Int32)">
+            <summary>
+            Gets count of theft bikes
+            </summary>
+            <param name="city">Optional. City name</param>
+            <param name="latitude">(Optioinal) Latitude of the location</param>
+            <param name="longitude">(Optioinal) Longitude of the location</param>
+            <param name="distance">(Optioinal) Distance: default value is 20</param>
+            <returns></returns>
+        </member>
+        <member name="T:Swapfiets.Theft.Api.Controllers.CityController">
+            <summary>
+            Represents the city resources
+            </summary>
+        </member>
+        <member name="M:Swapfiets.Theft.Api.Controllers.CityController.#ctor(Swapfiets.Theft.Service.Services.ICityService,AutoMapper.IMapper)">
+            <summary>
+            Injects the dependencies
+            </summary>
+            <param name="cityService">Initializes the city service</param>
+            <param name="mapper">Initializes the mapper service</param>
+        </member>
+        <member name="M:Swapfiets.Theft.Api.Controllers.CityController.Get">
+            <summary>
+            Gets all cities
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Swapfiets.Theft.Api.Controllers.CityController.Get(System.String)">
+            <summary>
+            Gets city by identifier
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Swapfiets.Theft.Api.Controllers.CityController.Post(Swapfiets.Theft.Service.Models.City)">
+            <summary>
+            Creates a new city
+            </summary>
+            <param name="newCity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Swapfiets.Theft.Api.Controllers.CityController.UpdateAsync(System.String,Swapfiets.Theft.Service.Models.City)">
+            <summary>
+            Updates city
+            </summary>
+            <param name="id">Required. City identifier.</param>
+            <param name="city"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
