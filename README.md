@@ -34,7 +34,7 @@ Restore packages, build & run
   .\swapfiets.run.ps1
 ```
 
-Test
+Run unit tests
 
 ```bash
   .\swapfiets.tests.ps1
@@ -57,7 +57,7 @@ Test
 
 | #         | Criteria                                 |
 | :-------- | :--------------------------------------- |
-| `1`       | Load number of registered bike theft in a given city. |
+| `1`       | In order to access load number of registered bike theft in a given city. |
 | `2`       | Swapfiets is operating in some cities, but wants to expand in more cities in next year. |
 
 ## API Reference
@@ -87,7 +87,32 @@ Test
 | `page_size`| `integer` | **Optional**. Default value is 20 |
 | `page_number`| `integer` | **Optional**. Default value is 1 |
 
-** To add more cities in the system, I am storing cities in database **
+- As Swapfiets is operating in some cities, and in future it will be expanded to other cities, we should have a City table in database to store them.
+- So that frontend can load up all those cities.
+
+#### Get all cities
+
+```http
+  GET /api/v1/city
+```
+#### Create new city
+
+```http
+  POST /api/v1/city
+```
+#### Get city by Id
+
+```http
+  GET /api/v1/city/{id}
+```
+#### Update city
+```http
+  PUT /api/v1/city
+```
+#### Delete city
+```http
+  DELETE /api/v1/city
+```
 
 
 
@@ -95,7 +120,3 @@ Test
 
 If you have any feedback, please reach out to me at nazmoonnoor@gmail.com
 
-
-Overview
-Design and architecture
-Design decisions
