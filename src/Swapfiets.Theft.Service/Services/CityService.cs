@@ -61,18 +61,19 @@ namespace Swapfiets.Theft.Service.Services
             }
         }
 
-        public async Task<bool> DeleteAsync(string id, City city, CancellationToken cancellationToken)
+        public async Task<City> DeleteAsync(string id, CancellationToken cancellationToken)
         {
             if (string.IsNullOrEmpty(id))
                 throw new ArgumentNullException(nameof(id));
 
-            if (city == null)
-                throw new ArgumentNullException(nameof(city));
-
             try
             {
-                city.Id = new Guid(id);
-                var deleted = await cityRepository.DeleteAsync(city, cancellationToken);
+                var cityId = new Guid(id);
+                var existing = await cityRepository.GetByIdAsync(cityId, cancellationToken);
+                if (existing == null)
+                    throw new Exception("City not found!");
+                
+                var deleted = await cityRepository.DeleteAsync(existing, cancellationToken);
 
                 return deleted;
             }
@@ -104,9 +105,9 @@ namespace Swapfiets.Theft.Service.Services
             try
             {
                 var cityId = new Guid(id);
-                var cities = await cityRepository.GetByIdAsync(cityId, cancellationToken);
+                var city = await cityRepository.GetByIdAsync(cityId, cancellationToken);
 
-                return cities;
+                return city;
             }
             catch (Exception ex)
             {

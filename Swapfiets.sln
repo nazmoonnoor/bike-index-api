@@ -14,8 +14,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		swapfiets.tests.ps1 = swapfiets.tests.ps1
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swapfiets.Core.SharedKernel", "src\Swapfiets.Core\Swapfiets.Core.SharedKernel\Swapfiets.Core.SharedKernel.csproj", "{A9F64E77-9E33-4A1C-87EB-12BA62F704E4}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{60BE7231-E3EA-4E86-8F63-D2DCDFAFE1AD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swapfiets.Theft.Api", "src\Swapfiets.Theft.Api\Swapfiets.Theft.Api.csproj", "{555CD79A-923F-494C-B71D-608606C047C1}"
@@ -32,10 +30,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A9F64E77-9E33-4A1C-87EB-12BA62F704E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9F64E77-9E33-4A1C-87EB-12BA62F704E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A9F64E77-9E33-4A1C-87EB-12BA62F704E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A9F64E77-9E33-4A1C-87EB-12BA62F704E4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{555CD79A-923F-494C-B71D-608606C047C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{555CD79A-923F-494C-B71D-608606C047C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{555CD79A-923F-494C-B71D-608606C047C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -58,7 +52,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6F0B467B-00C0-4019-852A-7E2460B08CDB} = {BC5A34AB-D17C-4AC7-B06D-4983BE0A3F15}
-		{A9F64E77-9E33-4A1C-87EB-12BA62F704E4} = {6F0B467B-00C0-4019-852A-7E2460B08CDB}
 		{555CD79A-923F-494C-B71D-608606C047C1} = {BC5A34AB-D17C-4AC7-B06D-4983BE0A3F15}
 		{220E88A7-148E-468A-8D59-D975022EC918} = {BC5A34AB-D17C-4AC7-B06D-4983BE0A3F15}
 		{5DA5DC5C-835D-470A-9872-2AA48D700457} = {BC5A34AB-D17C-4AC7-B06D-4983BE0A3F15}

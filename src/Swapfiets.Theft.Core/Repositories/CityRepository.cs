@@ -50,13 +50,13 @@ namespace Swapfiets.Theft.Core.Repositories
             }
         }
 
-        public async Task<bool> DeleteAsync(City city, CancellationToken cancellation = default)
+        public async Task<City> DeleteAsync(City city, CancellationToken cancellation = default)
         {
             try
             {
                 var entity = context.Set<City>().Remove(city);
                 await context.SaveChangesAsync();
-                return entity.State == EntityState.Deleted;
+                return entity.Entity;
             }
             catch (Exception ex)
             {

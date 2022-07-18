@@ -46,11 +46,6 @@ Run unit tests
 
 
 
-## Demo
-
-![](https://i.ibb.co/YNYNFvj/l-LJvresy-Uu.png)
-
-
 ## Acceptance Criteria
 
 

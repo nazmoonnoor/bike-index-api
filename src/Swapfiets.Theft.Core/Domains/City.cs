@@ -1,6 +1,4 @@
-﻿using Swapfiets.Core.SharedKernel;
-
-namespace Swapfiets.Theft.Core.Domains
+﻿namespace Swapfiets.Theft.Core.Domains
 {
     public class City : EntityBase, ICloneable
     {

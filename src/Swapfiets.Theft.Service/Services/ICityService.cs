@@ -28,7 +28,7 @@ namespace Swapfiets.Theft.Service.Services
         /// <param name="city"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        Task<bool> DeleteAsync(string id, City city, CancellationToken cancellationToken);
+        Task<City> DeleteAsync(string id, CancellationToken cancellationToken);
 
         /// <summary>
         /// Gets by city id

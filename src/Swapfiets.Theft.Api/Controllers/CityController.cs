@@ -38,6 +38,10 @@ namespace Swapfiets.Theft.Api.Controllers
         public async Task<IActionResult> Get()
         {
             var cities = await cityService.GetAllCitiesAsync(HttpContext.RequestAborted);
+
+            if (cities is null)
+                return NotFound();
+
             return Ok(mapper.Map<List<Service.Models.City>>(cities));
         }
 
@@ -55,9 +59,7 @@ namespace Swapfiets.Theft.Api.Controllers
             var city = await cityService.GetByIdAsync(id, HttpContext.RequestAborted);
 
             if (city is null)
-            {
                 return NotFound();
-            }
 
             return Ok(mapper.Map<Service.Models.City>(city));
         }
@@ -79,7 +81,8 @@ namespace Swapfiets.Theft.Api.Controllers
             city.Id = Guid.NewGuid();
 
             var created = await cityService.CreateAsync(city, HttpContext.RequestAborted);
-            if (created == null)
+            
+            if (created is null)
                 return NotFound();
 
             return Ok(mapper.Map<Service.Models.City>(created));
@@ -97,7 +100,6 @@ namespace Swapfiets.Theft.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> UpdateAsync(string id, Service.Models.City city)
         {
-
             var changed = mapper.Map<Core.Domains.City>(city);
             var updated = await cityService.UpdateAsync(id, existing =>
             {
@@ -110,6 +112,21 @@ namespace Swapfiets.Theft.Api.Controllers
                 return NotFound();
 
             return Ok(mapper.Map<Service.Models.City>(updated));
+        }
+
+        /// <summary>
+        /// Deletes city
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<IActionResult> DeleteAsync(string id) 
+        {
+            var deleted = await cityService.DeleteAsync(id, HttpContext.RequestAborted);
+            
+            if (deleted == null)
+                return NotFound();
+
+            return Ok();
         }
     }
 }

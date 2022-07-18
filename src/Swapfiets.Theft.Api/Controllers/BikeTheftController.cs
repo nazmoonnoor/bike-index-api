@@ -26,6 +26,31 @@ namespace Swapfiets.Theft.Api.Controllers
         }
 
         /// <summary>
+        /// Gets count of theft bikes
+        /// </summary>
+        /// <param name="city">Optional. City name</param>
+        /// <param name="latitude">(Optioinal) Latitude of the location</param>
+        /// <param name="longitude">(Optioinal) Longitude of the location</param>
+        /// <param name="distance">(Optioinal) Distance: default value is 20</param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("count")]
+        [Produces("application/json")]
+        [ProducesResponseType(typeof(BikeTheftCountResponse), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.InternalServerError)]
+        public async Task<IActionResult> GetBikeTheftCount(string? city, double? latitude, double? longitude, int distance)
+        {
+            var query = new BikeTheftQueryParams(city, new GeoCoordinate(latitude, longitude), distance);
+
+            var response = await bikeTheftService.SearchCountAsync(query, HttpContext.RequestAborted);
+
+            if (response == null)
+                return BadRequest();
+
+            return Ok(response);
+        }
+
+        /// <summary>
         /// Gets filtered list of theft bikes
         /// </summary>
         /// <param name="city">Optional. City name</param>
@@ -47,31 +72,8 @@ namespace Swapfiets.Theft.Api.Controllers
 
             if (response == null)
                 return BadRequest();
-            else return Ok(response);
-        }
 
-        /// <summary>
-        /// Gets count of theft bikes
-        /// </summary>
-        /// <param name="city">Optional. City name</param>
-        /// <param name="latitude">(Optioinal) Latitude of the location</param>
-        /// <param name="longitude">(Optioinal) Longitude of the location</param>
-        /// <param name="distance">(Optioinal) Distance: default value is 20</param>
-        /// <returns></returns>
-        [HttpGet]
-        [Route("count")]
-        [Produces("application/json")]
-        [ProducesResponseType(typeof(BikeTheftCountResponse), (int)HttpStatusCode.OK)]
-        [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.InternalServerError)]
-        public async Task<IActionResult> GetBikeTheftCount(string? city, double? latitude, double? longitude, int distance)
-        {
-            var query = new BikeTheftQueryParams(city, new GeoCoordinate(latitude, longitude), distance);
-
-            var response = await bikeTheftService.SearchCountAsync(query, HttpContext.RequestAborted);
-
-            if (response == null)
-                return BadRequest();
-            else return Ok(response);
+            return Ok(response);
         }
     }
 }

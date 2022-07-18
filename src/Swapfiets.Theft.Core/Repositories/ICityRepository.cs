@@ -29,7 +29,7 @@ namespace Swapfiets.Theft.Core.Repositories
         /// <param name="city"></param>
         /// <param name="cancellation"></param>
         /// <returns></returns>
-        Task<bool> DeleteAsync(City city, CancellationToken cancellation = default);
+        Task<City> DeleteAsync(City city, CancellationToken cancellation = default);
         
         /// <summary>
         /// Gets city by Id

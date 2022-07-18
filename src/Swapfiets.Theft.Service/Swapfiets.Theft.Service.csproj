@@ -15,7 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Swapfiets.Core\Swapfiets.Core.SharedKernel\Swapfiets.Core.SharedKernel.csproj" />
     <ProjectReference Include="..\Swapfiets.Theft.Core\Swapfiets.Theft.Core.csproj" />
   </ItemGroup>
 

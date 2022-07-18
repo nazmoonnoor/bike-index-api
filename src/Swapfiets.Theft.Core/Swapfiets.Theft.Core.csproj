@@ -10,8 +10,4 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.7" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Swapfiets.Core\Swapfiets.Core.SharedKernel\Swapfiets.Core.SharedKernel.csproj" />
-  </ItemGroup>
-
 </Project>
