@@ -32,13 +32,18 @@ namespace Swapfiets.Theft.Core.Repositories
         public async Task<City> UpdateAsync(string id, Func<City, Task<City>> callback, CancellationToken cancellationToken = default)
         {
             var current = await GetByIdAsync(new Guid(id), cancellationToken);
+            
             if (current == null)
                 throw new ArgumentException($"City '{id}' is not valid or doesn't exist.", nameof(id));
 
             try
             {
                 var modified = await callback(current);
-                modified.Id = new Guid(id);
+                
+                if (current != null)
+                {
+                    context.Entry(current).State = EntityState.Detached;
+                }
 
                 context.Entry(modified).State = EntityState.Modified;
                 await context.SaveChangesAsync();

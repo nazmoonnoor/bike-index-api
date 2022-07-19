@@ -103,8 +103,11 @@ namespace Swapfiets.Theft.Api.Controllers
             var changed = mapper.Map<Core.Domains.City>(city);
             var updated = await cityService.UpdateAsync(id, existing =>
             {
+                existing.Id = new Guid(id);
                 existing.Name = changed.Name;
                 existing.Country = changed.Country;
+                existing.Created = changed.Created;
+                existing.CreatedBy = changed.CreatedBy;
                 return Task.FromResult(existing);
             }, HttpContext.RequestAborted);
 

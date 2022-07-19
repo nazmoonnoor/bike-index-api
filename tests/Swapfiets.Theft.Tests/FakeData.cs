@@ -9,9 +9,9 @@ public static class FakeData
     public static readonly BikeTheftResponse BikeTheftFakes = new BikeTheftResponse(
         new List<Bike>
         {
-            new Bike("description 1", new List<string>(){ "blue" }, "model", 1, null, "WBK73220IF", "stolen", true, null, "Amsterdam", null, "title", ""),
-            new Bike("description 2", new List<string>(){ "blue" }, "model", 1, null, "WBK73220IE", "stolen", true, null, "Amsterdam", null, "title", ""),
-            new Bike("description 3", new List<string>(){ "blue" }, "model", 1, null, "WBK73220ID", "stolen", true, null, "Amsterdam", null, "title", "")
+            new Bike("description 1", new List<string>(){ "blue" }, "model", 1, string.Empty, "WBK73220IF", "stolen", true, new List<double>(), "Amsterdam", string.Empty, "title", ""),
+            new Bike("description 2", new List<string>(){ "blue" }, "model", 1, string.Empty, "WBK73220IE", "stolen", true, new List<double>(), "Amsterdam", string.Empty, "title", ""),
+            new Bike("description 3", new List<string>(){ "blue" }, "model", 1, string.Empty, "WBK73220ID", "stolen", true, new List<double>(), "Amsterdam", string.Empty, "title", "")
         });
 
     public static readonly string BikeTheftJson = @"{

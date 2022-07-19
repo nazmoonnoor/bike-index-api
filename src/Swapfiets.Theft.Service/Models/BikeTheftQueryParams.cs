@@ -8,10 +8,10 @@
     /// <param name="Distance">Distance</param>
     public class BikeTheftQueryParams
     {
-        public BikeTheftQueryParams(string? city, string location, int distance, int pageSize = 20, int pageNumber = 1)
+        public BikeTheftQueryParams(string? city, string? location, int distance, int pageSize = 20, int pageNumber = 1)
         {
             City = city;
-            GeoCoordinate = GetGeoCoordinate(location);
+            GeoCoordinate = location !=null ? GetGeoCoordinate(location) : null;
             Distance = distance != 0 ? distance : Distance;
             PageSize = pageSize != 0 ? pageSize : 20;
             PageNumber = pageNumber != 0 ? pageNumber : 1;

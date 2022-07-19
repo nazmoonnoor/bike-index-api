@@ -42,13 +42,9 @@ namespace Swapfiets.Theft.Tests.Services
         {
             // Act + Assert
 
-            // Throws exception when filtered parameters are null
-            await Assert.ThrowsAsync<ArgumentNullException>(async () =>
-                await bikeTheftService.SearchCountAsync(null, CancellationToken.None));
-
             // Throws exception when no city or GeoCoordinate are provided
             await Assert.ThrowsAsync<ArgumentException>(async () =>
-                await bikeTheftService.SearchCountAsync(new BikeTheftQueryParams(null, string.Empty, 0), CancellationToken.None));
+                await bikeTheftService.SearchCountAsync(new BikeTheftQueryParams("", "", 0), CancellationToken.None));
 
             // Throws exception when invalid GeoCoordinate is provided
             await Assert.ThrowsAsync<ArgumentOutOfRangeException>(async () =>
