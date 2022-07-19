@@ -2,13 +2,17 @@
 # Swapfiets Bike Theft API
 ![example workflow](https://github.com/nazmoonnoor/sf-assignment/actions/workflows/dotnet.yml/badge.svg)
 
-This is a .Net 6 solution building with:
+The API project is a .Net 6 solution build with:
 - [.Net 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 - [Entity Framework 6](https://docs.microsoft.com/en-us/ef/core/)
 - [Polly](https://github.com/App-vNext/Polly)
 - [AutoMapper](https://automapper.org/)
 - [xUnit](https://xunit.net/)
 
+The frontend is build with:
+- [React](https://reactjs.org/)
+
+Here is the [Frontend README](https://github.com/nazmoonnoor/swapfiets/tree/main/frontend.react)
 ## Clone the project
 
 ```bash
@@ -109,9 +113,4 @@ Run unit tests
   DELETE /api/v1/city
 ```
 
-
-
-## Feedback
-
-If you have any feedback, please reach out to me at nazmoonnoor@gmail.com
 
