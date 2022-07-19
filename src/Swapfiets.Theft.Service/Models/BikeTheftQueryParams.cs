@@ -8,18 +8,18 @@
     /// <param name="Distance">Distance</param>
     public class BikeTheftQueryParams
     {
-        public BikeTheftQueryParams(string? city, GeoCoordinate? location, int distance, int pageSize = 20, int pageNumber = 1)
+        public BikeTheftQueryParams(string? city, string location, int distance, int pageSize = 20, int pageNumber = 1)
         {
             City = city;
-            GeoCoordinate = location;
-            Distance = distance != 0 ? distance : 10;
+            GeoCoordinate = GetGeoCoordinate(location);
+            Distance = distance != 0 ? distance : Distance;
             PageSize = pageSize != 0 ? pageSize : 20;
             PageNumber = pageNumber != 0 ? pageNumber : 1;
         }
 
         public string? City { get; set; }
         public GeoCoordinate? GeoCoordinate { get; set; }
-        public int Distance { get; init; }
+        public int Distance { get; init; } = 10;
         public int PageSize { get; init; }
         public int PageNumber { get; init; }
 
@@ -36,5 +36,33 @@
 
             return false;
         }
+
+        /// <summary>
+        /// Get GeoCoordinate object based on user input
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public GeoCoordinate? GetGeoCoordinate(string location)
+        {
+            if (string.IsNullOrEmpty(location))
+                return null;
+
+            var latlng = location.Split(',');
+            double latitude = 0d;
+            double longitude = 0d;
+            if (double.TryParse(latlng[0], out latitude)
+                && double.TryParse(latlng[1], out longitude))
+            {
+                var coordinate = new GeoCoordinate(latitude, longitude);
+
+                if (!coordinate.IsValid())
+                    throw new Exception("Provide a valid latitude/longitude.");
+                
+                return coordinate;
+            }
+
+            return null;
+       }
     }
 }

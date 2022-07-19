@@ -34,7 +34,7 @@ namespace Swapfiets.Theft.Tests.Controllers
                 .ReturnsAsync(bikeTheftFakes);
 
             // Act
-            var result = await bikeTheftController.GetBikeThefts(city, null, null, distance, 20, 1);
+            var result = await bikeTheftController.GetBikeThefts(city, string.Empty, distance, 20, 1);
             var okResult = result as ObjectResult;
 
             // Assert
@@ -46,9 +46,9 @@ namespace Swapfiets.Theft.Tests.Controllers
         }
 
         [Theory]
-        [InlineData(50.230, 13.4050, 20)]
-        [InlineData(23.430, 55.4050, 0)]
-        public async Task Should_Return_ListOf_TheftBikes_When_SearchByGeoCoordinate(double latitude, double longitude, int distance)
+        [InlineData("50.230, 13.4050", 20)]
+        [InlineData("23.430, 55.4050", 0)]
+        public async Task Should_Return_ListOf_TheftBikes_When_SearchByGeoCoordinate(string latlng, int distance)
         {
             // Arrange
             mockBikeTheftService
@@ -56,7 +56,7 @@ namespace Swapfiets.Theft.Tests.Controllers
                 .ReturnsAsync(bikeTheftFakes);
 
             // Act
-            var result = await bikeTheftController.GetBikeThefts(null, latitude, longitude, distance, 20,1);
+            var result = await bikeTheftController.GetBikeThefts(null, latlng, distance, 20,1);
             var okResult = result as ObjectResult;
 
             // Assert
@@ -76,7 +76,7 @@ namespace Swapfiets.Theft.Tests.Controllers
                 .Returns(Task.FromResult<BikeTheftResponse>(null));
 
             // Act
-            var result = await bikeTheftController.GetBikeThefts("Amsterdam", null, null, distance: 10, 20, 1);
+            var result = await bikeTheftController.GetBikeThefts("Amsterdam", string.Empty, distance: 10, 20, 1);
             var badRequestResult = result as BadRequestResult;
 
             // Assert
@@ -96,7 +96,7 @@ namespace Swapfiets.Theft.Tests.Controllers
                 .ReturnsAsync(new BikeTheftCountResponse(70, "", 200));
 
             // Act
-            var result = await bikeTheftController.GetBikeTheftCount(city, null, null, distance);
+            var result = await bikeTheftController.GetBikeTheftCount(city, string.Empty, distance);
             var okResult = result as ObjectResult;
 
             // Assert
@@ -107,9 +107,9 @@ namespace Swapfiets.Theft.Tests.Controllers
         }
 
         [Theory]
-        [InlineData(50.230, 13.4050, 20)]
-        [InlineData(23.430, 55.4050, 0)]
-        public async Task Should_Return_BikeTheftCount_When_SearchByGeoCoordinate(double latitude, double longitude, int distance)
+        [InlineData("50.230, 13.4050", 20)]
+        [InlineData("23.430, 55.4050", 0)]
+        public async Task Should_Return_BikeTheftCount_When_SearchByGeoCoordinate(string latlng, int distance)
         {
             // Arrange
             mockBikeTheftService
@@ -117,7 +117,7 @@ namespace Swapfiets.Theft.Tests.Controllers
                 .ReturnsAsync(new BikeTheftCountResponse(70, "", 200));
 
             // Act
-            var result = await bikeTheftController.GetBikeTheftCount(null, latitude, longitude, distance);
+            var result = await bikeTheftController.GetBikeTheftCount(null, latlng, distance);
             var okResult = result as ObjectResult;
 
             // Assert
@@ -136,7 +136,7 @@ namespace Swapfiets.Theft.Tests.Controllers
                 .Returns(Task.FromResult<BikeTheftCountResponse>(null));
 
             // Act
-            var result = await bikeTheftController.GetBikeTheftCount("Amsterdam", null, null, 0);
+            var result = await bikeTheftController.GetBikeTheftCount("Amsterdam", string.Empty, 0);
             var badRequestResult = result as BadRequestResult;
 
             // Assert

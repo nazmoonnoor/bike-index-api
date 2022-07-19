@@ -28,9 +28,8 @@ namespace Swapfiets.Theft.Api.Controllers
         /// <summary>
         /// Gets count of theft bikes
         /// </summary>
-        /// <param name="city">Optional. City name</param>
-        /// <param name="latitude">(Optioinal) Latitude of the location</param>
-        /// <param name="longitude">(Optioinal) Longitude of the location</param>
+        /// <param name="city">(Optional) City name</param>
+        /// <param name="latlng">(Optioinal) Latlng of the location</param>
         /// <param name="distance">(Optioinal) Distance: default value is 10</param>
         /// <returns></returns>
         [HttpGet]
@@ -38,9 +37,9 @@ namespace Swapfiets.Theft.Api.Controllers
         [Produces("application/json")]
         [ProducesResponseType(typeof(BikeTheftCountResponse), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.InternalServerError)]
-        public async Task<IActionResult> GetBikeTheftCount(string? city, double? latitude, double? longitude, int distance)
+        public async Task<IActionResult> GetBikeTheftCount(string? city, string? latlng, int distance)
         {
-            var query = new BikeTheftQueryParams(city, new GeoCoordinate(latitude, longitude), distance);
+            var query = new BikeTheftQueryParams(city, latlng, distance);
 
             var response = await bikeTheftService.SearchCountAsync(query, HttpContext.RequestAborted);
 
@@ -53,9 +52,8 @@ namespace Swapfiets.Theft.Api.Controllers
         /// <summary>
         /// Gets filtered list of theft bikes
         /// </summary>
-        /// <param name="city">Optional. City name</param>
-        /// <param name="latitude">(Optioinal) Latitude of the location</param>
-        /// <param name="longitude">(Optioinal) Longitude of the location</param>
+        /// <param name="city">(Optional) City name</param>
+        /// <param name="latlng">(Optioinal) Latlng of the location</param>
         /// <param name="distance">(Optioinal) Distance: default value is 10</param>
         /// <param name="pageSize">(Optioinal) PageSize: default value is 20</param>
         /// <param name="pageNumber">(Optioinal) PageNumber: default value is 1</param>
@@ -64,9 +62,9 @@ namespace Swapfiets.Theft.Api.Controllers
         [Produces("application/json")]
         [ProducesResponseType(typeof(BikeTheftResponse), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.InternalServerError)]
-        public async Task<IActionResult> GetBikeThefts(string? city, double? latitude, double? longitude, int distance, int pageSize, int pageNumber)
+        public async Task<IActionResult> GetBikeThefts(string? city, string? latlng, int distance, int pageSize, int pageNumber)
         {
-            var query = new BikeTheftQueryParams(city, new GeoCoordinate(latitude, longitude), distance, pageSize, pageNumber);
+            var query = new BikeTheftQueryParams(city, latlng, distance, pageSize, pageNumber);
 
             var response = await bikeTheftService.SearchAsync(query, HttpContext.RequestAborted);
 

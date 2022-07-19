@@ -38,53 +38,6 @@ namespace Swapfiets.Theft.Tests.Services
         }
 
         [Fact]
-        public async Task Search_Should_Throws_ArgumentExceptions_With_Null_And_Invalid_Parameters()
-        {
-            // Act + Assert
-
-            // Throws exception when filtered parameters are null
-            await Assert.ThrowsAsync<ArgumentNullException>(async () =>
-                await bikeTheftService.SearchAsync(null, CancellationToken.None));
-
-            // Throws exception when no city or GeoCoordinate are provided
-            await Assert.ThrowsAsync<ArgumentException>(async () =>
-                await bikeTheftService.SearchAsync(new BikeTheftQueryParams(null, null, 0), CancellationToken.None));
-
-            // Throws exception when invalid GeoCoordinate is provided
-            await Assert.ThrowsAsync<ArgumentOutOfRangeException>(async () =>
-                await bikeTheftService.SearchAsync(new BikeTheftQueryParams("", new GeoCoordinate(-150.230, 14.234), 0), CancellationToken.None));
-        }
-
-        [Fact]
-        public async Task Search_Should_Return_BikeTheftResponse_With_City_Parameter()
-        {
-            // Arrange
-            var mockHttpMessageHandler = new Mock<HttpMessageHandler>();
-            mockHttpMessageHandler.Protected()
-                .Setup<Task<HttpResponseMessage>>("SendAsync", ItExpr.IsAny<HttpRequestMessage>(), ItExpr.IsAny<CancellationToken>())
-                .ReturnsAsync(new HttpResponseMessage
-                {
-                    StatusCode = HttpStatusCode.OK,
-                    Content = new StringContent(bikeTheftJson),
-                });
-
-            var client = new HttpClient(mockHttpMessageHandler.Object)
-            {
-                BaseAddress = new Uri("http://test.com/"),
-            };
-
-            mockHttpClientFactory.Setup(_ => _.CreateClient(It.IsAny<string>())).Returns(client);
-
-            // Act
-            var result = await bikeTheftService.SearchAsync(new BikeTheftQueryParams("Amsterdam", null, 10), CancellationToken.None);
-
-            //Assert
-            Assert.NotNull(result);
-            Assert.IsType<BikeTheftResponse>(result);
-            Assert.Single(result!.Bikes);
-        }
-
-        [Fact]
         public async Task SearchCount_Should_Throws_ArgumentExceptions_With_Null_And_Invalid_Parameters()
         {
             // Act + Assert
@@ -95,36 +48,11 @@ namespace Swapfiets.Theft.Tests.Services
 
             // Throws exception when no city or GeoCoordinate are provided
             await Assert.ThrowsAsync<ArgumentException>(async () =>
-                await bikeTheftService.SearchCountAsync(new BikeTheftQueryParams(null, null, 0), CancellationToken.None));
+                await bikeTheftService.SearchCountAsync(new BikeTheftQueryParams(null, string.Empty, 0), CancellationToken.None));
 
             // Throws exception when invalid GeoCoordinate is provided
             await Assert.ThrowsAsync<ArgumentOutOfRangeException>(async () =>
-                await bikeTheftService.SearchCountAsync(new BikeTheftQueryParams("", new GeoCoordinate(-150.230, 14.234), 20), CancellationToken.None));
-        }
-
-        [Fact]
-        public async Task SearchCount_Should_Throws_ArgumentException_With_Zero_Count()
-        {
-            // Arrange
-            var mockHttpMessageHandler = new Mock<HttpMessageHandler>();
-            mockHttpMessageHandler.Protected()
-                .Setup<Task<HttpResponseMessage>>("SendAsync", ItExpr.IsAny<HttpRequestMessage>(), ItExpr.IsAny<CancellationToken>())
-                .ReturnsAsync(new HttpResponseMessage
-                {
-                    StatusCode = HttpStatusCode.OK,
-                    Content = new StringContent("{ 'proximity': 0 }"),
-                });
-
-            var client = new HttpClient(mockHttpMessageHandler.Object)
-            {
-                BaseAddress = new Uri("http://test.com/"),
-            };
-
-            mockHttpClientFactory.Setup(_ => _.CreateClient(It.IsAny<string>())).Returns(client);
-
-            // Act + Assert
-            await Assert.ThrowsAsync<ArgumentException>(async () =>
-                await bikeTheftService.SearchCountAsync(new BikeTheftQueryParams("Amsterdam", null, 10), CancellationToken.None));
+                await bikeTheftService.SearchCountAsync(new BikeTheftQueryParams("", "-150.230, 14.234", 20), CancellationToken.None));
         }
 
         [Fact]
@@ -148,12 +76,59 @@ namespace Swapfiets.Theft.Tests.Services
             mockHttpClientFactory.Setup(_ => _.CreateClient(It.IsAny<string>())).Returns(client);
 
             // Act
-            var result = await bikeTheftService.SearchCountAsync(new BikeTheftQueryParams("Amsterdam", null, 10), CancellationToken.None);
+            var result = await bikeTheftService.SearchCountAsync(new BikeTheftQueryParams("Amsterdam", string.Empty, 10), CancellationToken.None);
 
             //Assert
             Assert.NotNull(result);
             Assert.IsType<BikeTheftCountResponse>(result);
             Assert.Equal(200, result!.StatusCode);
+        }
+
+        [Fact]
+        public async Task Search_Should_Throws_ArgumentExceptions_With_Null_And_Invalid_Parameters()
+        {
+            // Act + Assert
+
+            // Throws exception when filtered parameters are null
+            await Assert.ThrowsAsync<ArgumentNullException>(async () =>
+                await bikeTheftService.SearchAsync(null, CancellationToken.None));
+
+            // Throws exception when no city or GeoCoordinate are provided
+            await Assert.ThrowsAsync<ArgumentException>(async () =>
+                await bikeTheftService.SearchAsync(new BikeTheftQueryParams(null, null, 0), CancellationToken.None));
+
+            // Throws exception when invalid GeoCoordinate is provided
+            await Assert.ThrowsAsync<ArgumentOutOfRangeException>(async () =>
+                await bikeTheftService.SearchAsync(new BikeTheftQueryParams("", "-150.230, 14.234", 0), CancellationToken.None));
+        }
+
+        [Fact]
+        public async Task Search_Should_Return_BikeTheftResponse_With_City_Parameter()
+        {
+            // Arrange
+            var mockHttpMessageHandler = new Mock<HttpMessageHandler>();
+            mockHttpMessageHandler.Protected()
+                .Setup<Task<HttpResponseMessage>>("SendAsync", ItExpr.IsAny<HttpRequestMessage>(), ItExpr.IsAny<CancellationToken>())
+                .ReturnsAsync(new HttpResponseMessage
+                {
+                    StatusCode = HttpStatusCode.OK,
+                    Content = new StringContent(bikeTheftJson),
+                });
+
+            var client = new HttpClient(mockHttpMessageHandler.Object)
+            {
+                BaseAddress = new Uri("http://test.com/"),
+            };
+
+            mockHttpClientFactory.Setup(_ => _.CreateClient(It.IsAny<string>())).Returns(client);
+
+            // Act
+            var result = await bikeTheftService.SearchAsync(new BikeTheftQueryParams("Amsterdam", string.Empty, 10), CancellationToken.None);
+
+            //Assert
+            Assert.NotNull(result);
+            Assert.IsType<BikeTheftResponse>(result);
+            Assert.Single(result!.Bikes);
         }
     }
 }
