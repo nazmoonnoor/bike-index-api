@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import bike from "../images/bike.png";
+import bike from "../../images/bike.png";
 
 const CityCard = (props) => {
   const { id, name, country } = props.city;

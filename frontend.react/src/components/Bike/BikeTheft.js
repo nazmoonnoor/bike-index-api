@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import api from "../api/cities";
+import api from "../../api/cities";
 
 const BikeTheft = (props) => {
   const [location, setLocation] = useState("");

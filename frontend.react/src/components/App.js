@@ -4,10 +4,10 @@ import { uuid } from "uuidv4";
 import api from "../api/cities";
 import "./App.css";
 import Header from "./Header";
-import AddCity from "./AddCity";
-import CityList from "./CityList";
-import EditCity from "./EditCity";
-import BikeTheft from "./BikeTheft";
+import AddCity from "./City/AddCity";
+import CityList from "./City/CityList";
+import EditCity from "./City/EditCity";
+import BikeTheft from "./Bike/BikeTheft";
 
 function App() {
   const [cities, setCities] = useState([]);

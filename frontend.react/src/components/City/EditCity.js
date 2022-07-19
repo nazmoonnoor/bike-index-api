@@ -19,7 +19,7 @@ class EditCity extends React.Component {
     }
     this.props.updateCityHandler(this.state);
     this.setState({ name: "", country: "" });
-    this.props.history.push("/");
+    this.props.history.push("/city-list");
   };
   render() {
     return (
