@@ -52,7 +52,7 @@ Run unit tests
 
 | #         | Criteria                                 |
 | :-------- | :--------------------------------------- |
-| `1`       | In order to access load number of registered bike theft in a given city. |
+| `1`       | In order to access risk, load number of registered `bike theft` in a given city. |
 | `2`       | Swapfiets is operating in some cities, but wants to expand in more cities in next year. |
 
 ## API Reference
@@ -66,7 +66,7 @@ Run unit tests
 | :-------- | :------- | :-------------------------------- |
 | `city`    | `string` | **City or Lat/long** must be provided |
 | `lat/long`| `string` | **City or Lat/long** must be provided |
-| `distance`| `integer`| **Optional**. Default value is 20 |
+| `distance`| `integer`| **Optional**. Default value is 10 |
 
 #### Get bike thefts
 
@@ -78,7 +78,7 @@ Run unit tests
 | :-------- | :------- | :-------------------------------- |
 | `city`    | `string` | **City or Lat/long** must be provided |
 | `lat/long`| `string` | **City or Lat/long** must be provided |
-| `distance`| `integer`| **Optional**. Default value is 20 |
+| `distance`| `integer`| **Optional**. Default value is 10 |
 | `page_size`| `integer` | **Optional**. Default value is 20 |
 | `page_number`| `integer` | **Optional**. Default value is 1 |
 

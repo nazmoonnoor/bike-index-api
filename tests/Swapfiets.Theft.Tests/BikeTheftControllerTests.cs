@@ -56,7 +56,7 @@ namespace Swapfiets.Theft.Tests.Controllers
                 .ReturnsAsync(bikeTheftFakes);
 
             // Act
-            var result = await bikeTheftController.GetBikeThefts(null, latitude, longitude, distance,20,1);
+            var result = await bikeTheftController.GetBikeThefts(null, latitude, longitude, distance, 20,1);
             var okResult = result as ObjectResult;
 
             // Assert
@@ -76,7 +76,7 @@ namespace Swapfiets.Theft.Tests.Controllers
                 .Returns(Task.FromResult<BikeTheftResponse>(null));
 
             // Act
-            var result = await bikeTheftController.GetBikeThefts("Amsterdam", null, null, distance: 20, 20, 1);
+            var result = await bikeTheftController.GetBikeThefts("Amsterdam", null, null, distance: 10, 20, 1);
             var badRequestResult = result as BadRequestResult;
 
             // Assert

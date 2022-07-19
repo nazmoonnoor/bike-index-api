@@ -31,7 +31,7 @@ namespace Swapfiets.Theft.Api.Controllers
         /// <param name="city">Optional. City name</param>
         /// <param name="latitude">(Optioinal) Latitude of the location</param>
         /// <param name="longitude">(Optioinal) Longitude of the location</param>
-        /// <param name="distance">(Optioinal) Distance: default value is 20</param>
+        /// <param name="distance">(Optioinal) Distance: default value is 10</param>
         /// <returns></returns>
         [HttpGet]
         [Route("count")]
@@ -56,7 +56,7 @@ namespace Swapfiets.Theft.Api.Controllers
         /// <param name="city">Optional. City name</param>
         /// <param name="latitude">(Optioinal) Latitude of the location</param>
         /// <param name="longitude">(Optioinal) Longitude of the location</param>
-        /// <param name="distance">(Optioinal) Distance: default value is 20</param>
+        /// <param name="distance">(Optioinal) Distance: default value is 10</param>
         /// <param name="pageSize">(Optioinal) PageSize: default value is 20</param>
         /// <param name="pageNumber">(Optioinal) PageNumber: default value is 1</param>
         /// <returns></returns>

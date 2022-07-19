@@ -117,8 +117,12 @@ namespace Swapfiets.Theft.Api.Controllers
         /// <summary>
         /// Deletes city
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">Required. City identifier.</param>
         /// <returns></returns>
+        [HttpDelete("{id}")]
+        [Produces("application/json")]
+        [ProducesResponseType(typeof(void), (int)HttpStatusCode.NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> DeleteAsync(string id) 
         {
             var deleted = await cityService.DeleteAsync(id, HttpContext.RequestAborted);

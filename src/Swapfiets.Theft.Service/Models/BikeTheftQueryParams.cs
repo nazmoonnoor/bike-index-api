@@ -12,7 +12,7 @@
         {
             City = city;
             GeoCoordinate = location;
-            Distance = distance != 0 ? distance : 20;
+            Distance = distance != 0 ? distance : 10;
             PageSize = pageSize != 0 ? pageSize : 20;
             PageNumber = pageNumber != 0 ? pageNumber : 1;
         }

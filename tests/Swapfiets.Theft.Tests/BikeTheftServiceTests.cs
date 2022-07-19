@@ -76,7 +76,7 @@ namespace Swapfiets.Theft.Tests.Services
             mockHttpClientFactory.Setup(_ => _.CreateClient(It.IsAny<string>())).Returns(client);
 
             // Act
-            var result = await bikeTheftService.SearchAsync(new BikeTheftQueryParams("Amsterdam", null, 20), CancellationToken.None);
+            var result = await bikeTheftService.SearchAsync(new BikeTheftQueryParams("Amsterdam", null, 10), CancellationToken.None);
 
             //Assert
             Assert.NotNull(result);
@@ -124,7 +124,7 @@ namespace Swapfiets.Theft.Tests.Services
 
             // Act + Assert
             await Assert.ThrowsAsync<ArgumentException>(async () =>
-                await bikeTheftService.SearchCountAsync(new BikeTheftQueryParams("Amsterdam", null, 20), CancellationToken.None));
+                await bikeTheftService.SearchCountAsync(new BikeTheftQueryParams("Amsterdam", null, 10), CancellationToken.None));
         }
 
         [Fact]
@@ -148,7 +148,7 @@ namespace Swapfiets.Theft.Tests.Services
             mockHttpClientFactory.Setup(_ => _.CreateClient(It.IsAny<string>())).Returns(client);
 
             // Act
-            var result = await bikeTheftService.SearchCountAsync(new BikeTheftQueryParams("Amsterdam", null, 20), CancellationToken.None);
+            var result = await bikeTheftService.SearchCountAsync(new BikeTheftQueryParams("Amsterdam", null, 10), CancellationToken.None);
 
             //Assert
             Assert.NotNull(result);
