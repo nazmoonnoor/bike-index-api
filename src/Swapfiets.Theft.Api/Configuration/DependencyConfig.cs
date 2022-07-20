@@ -18,6 +18,7 @@ namespace Swapfiets.Theft.Api.Configuration
             // Service layer
             services.AddScoped<IBikeTheftService, BikeTheftService>();
             services.AddScoped<ICityService, CityService>();
+            services.AddScoped<IRiskAssessService, RiskAssessService>();
 
             //
             //  Storage layer
