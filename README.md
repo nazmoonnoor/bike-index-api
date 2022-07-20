@@ -89,6 +89,15 @@ Run unit tests
 - As Swapfiets is operating in some cities, and in future it will be expanded to other cities, we should have a City table in database to store them.
 - So that frontend can load up all those cities.
 
+#### Assess risk among cities
+```http
+  GET /api/v1/risk-assess
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `location`    | `string` | **City or Lat/long** must be provided |
+
 #### Get all cities
 
 ```http
