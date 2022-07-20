@@ -12,11 +12,11 @@ namespace Swapfiets.Theft.Service.Services
     public interface IRiskAssessService
     {
         /// <summary>
-        /// Assess risk of bike theft among cities
+        /// Get list of theft count among cities, to assess the risk
         /// </summary>
         /// <param name="cities"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        Task<Dictionary<string, int>> RiskAssessByCityAsync(string city, CancellationToken cancellationToken);
+        Task<Dictionary<string, int>?> RiskAssessByLocationAsync(string? location, CancellationToken cancellationToken);
     }
 }

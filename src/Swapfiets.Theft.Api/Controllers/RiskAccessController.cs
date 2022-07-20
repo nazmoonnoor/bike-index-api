@@ -28,16 +28,16 @@ namespace Swapfiets.Theft.Api.Controllers
         /// <summary>
         /// Assess risk by city
         /// </summary>
-        /// <param name="city">(Required) City name</param>
+        /// <param name="location">(Required) City or lat/lng of the location</param>
         /// <returns></returns>
         [HttpGet]
         [Route("city")]
         [Produces("application/json")]
         [ProducesResponseType(typeof(Dictionary<string, int>), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.InternalServerError)]
-        public async Task<IActionResult> GetBikeTheftCount(string city)
+        public async Task<IActionResult> GetBikeTheftCount(string? location)
         {
-            var response = await riskAssessService.RiskAssessByCityAsync(city, HttpContext.RequestAborted);
+            var response = await riskAssessService.RiskAssessByLocationAsync(location, HttpContext.RequestAborted);
 
             if (response == null)
                 return BadRequest();

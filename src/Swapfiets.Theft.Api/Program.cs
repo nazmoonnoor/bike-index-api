@@ -12,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(opt => opt.UseInMemoryDatabase("Swapfiets.Theft"));
 builder.Services.AddControllers();
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+builder.Services.AddMemoryCache();
 builder.Services.AddHttpClient("BikeHttpClient", client =>
 {
     client.BaseAddress = new Uri(builder.Configuration.GetSection("BikeIndexBaseUrl").Value);
