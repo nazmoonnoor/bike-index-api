@@ -1,5 +1,5 @@
 
-# Swapfiets Bike Theft API
+# Bike Index API
 ![example workflow](https://github.com/nazmoonnoor/sf-assignment/actions/workflows/dotnet.yml/badge.svg)
 
 The API project is a .Net 6 solution build with:
