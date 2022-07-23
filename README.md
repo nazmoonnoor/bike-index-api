@@ -1,5 +1,5 @@
 
-# Swapfiets Bike Theft API
+# Bike Theft API
 ![example workflow](https://github.com/nazmoonnoor/sf-assignment/actions/workflows/dotnet.yml/badge.svg)
 
 The API project is a .Net 6 solution build with:
@@ -12,15 +12,15 @@ The API project is a .Net 6 solution build with:
 The frontend is build with:
 - [React](https://reactjs.org/)
 
-Here is the [Frontend README](https://github.com/nazmoonnoor/swapfiets/tree/main/frontend.react)
+Here is the [Frontend README](https://github.com/nazmoonnoor/theft.api/tree/main/frontend.react)
 ## Clone the project
 
 ```bash
-  git clone https://github.com/nazmoonnoor/swapfiets.git
+  git clone https://github.com/nazmoonnoor/theft.api.git
 ```
 ## Run using Visual Studio 2022
 
-- Open the `Swapfiets.sln` on `Visual Studio 2022`.
+- Open the `Theft.Api.sln` on `Visual Studio 2022`.
 - `Build & run` the solution.
 
 
@@ -29,19 +29,19 @@ Here is the [Frontend README](https://github.com/nazmoonnoor/swapfiets/tree/main
 Go to the project directory
 
 ```bash
-  cd Swapfiets
+  cd theft.api
 ```
 
 Restore packages, build & run
 
 ```bash
-  .\swapfiets.run.ps1
+  .\theft.run.ps1
 ```
 
 Run unit tests
 
 ```bash
-  .\swapfiets.tests.ps1
+  .\theft.tests.ps1
 ```
 
 ### Swagger page
@@ -57,7 +57,7 @@ Run unit tests
 | #         | Criteria                                 |
 | :-------- | :--------------------------------------- |
 | `1`       | In order to access risk, load number of registered `bike theft` in a given city. |
-| `2`       | Swapfiets is operating in some cities, but wants to expand in more cities in next year. |
+| `2`       | They is operating in some cities, but wants to expand in more cities in next year. |
 
 ## API Reference
 #### Get bike theft count
@@ -85,9 +85,6 @@ Run unit tests
 | `distance`| `integer`| **Optional**. Default value is 10 |
 | `page_size`| `integer` | **Optional**. Default value is 20 |
 | `page_number`| `integer` | **Optional**. Default value is 1 |
-
-- As Swapfiets is operating in some cities, and in future it will be expanded to other cities, we should have a City table in database to store them.
-- So that frontend can load up all those cities.
 
 #### Assess risk among cities
 ```http
